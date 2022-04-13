@@ -1,0 +1,71 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+}
+
+<h3 class="text-center">Kullanici bilgileri</h3>
+<div class="row">
+    <div class="col-sm-3">
+        <img style="width:100%;height:100%" src=@Model.Picture>@*profil fotografini degistirmek icin yolunu degistiriyoruz*@
+    </div>
+
+
+    <div class="col-sm-9">
+
+        <table class="table table-bordered table-striped">
+
+            <tr>
+                <th>Kullanici ismi</th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th>E-posta</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Telefon Numarasi</th>
+                <td>@Model.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>Cinsiyet</th>
+                <td>@Model.Gender</td>
+            </tr>
+            <tr>
+                <th>Sehir Bilgisi</th>
+                <td>
+                    @if (!String.IsNullOrEmpty(@Model.City))
+                    {
+                        @Model.City
+                    }
+                    else
+                    {
+                       <span>Belirtilmemistir</span> 
+                    }
+                    </td>
+            </tr>
+            <tr>
+                <th>Dogum tarihi</th>
+                <td>
+                    @if (Model.BirthDay!=null)
+                   {
+                        @Model.BirthDay?.ToShortDateString()
+                    }
+                    else
+                    {
+                        <span>Belirtilmemistir</span> 
+                    }
+
+                    
+                    
+                    </td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+</div>
+

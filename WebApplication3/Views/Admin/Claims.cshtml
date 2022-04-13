@@ -1,0 +1,31 @@
+﻿@model List<System.Security.Claims.Claim>//claimlerden bir list olacak
+@{
+    ViewData["Title"] = "Claims";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h3>Claims</h3>
+<hr />
+<table class="table table-bordered table-striped table-responsive">
+    <tr>
+        <th>Kim</th>
+        <th>Dagitici</th>
+        <th>Ad</th>
+        <th>Deger</th>
+    </tr>
+    @foreach (System.Security.Claims.Claim item in Model)
+   {
+       
+       <tr>
+           <td>@item.Subject.Name</td>@*Bu claim kimin hakkinda oldugunu verecek*@
+           <td>@item.Issuer</td>@*claimlerin nerden geldigini gosterecek*@
+           <td>@item.Type</td>
+           <td>@item.Value</td>@*bu tipin karsiligi olan degeri verecek*@
+       </tr>
+   }
+
+
+
+
+</table>
+
